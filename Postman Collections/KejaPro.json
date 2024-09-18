@@ -1,0 +1,599 @@
+{
+	"info": {
+		"_postman_id": "4644871a-0076-4a3f-9520-aebe827f767d",
+		"name": "KejaPro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Daraja",
+			"item": [
+				{
+					"name": "Localhost:8000",
+					"item": [
+						{
+							"name": "Generate OAuth Access Token Local",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is returned as JSON\", function () {\r",
+											"    pm.expect(pm.response).to.be.json;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response contains an access token\", function () {\r",
+											"    pm.expect(pm.response.json()).to.have.property('access_token');\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"id": "ed15c77c-6bf3-40a1-830e-0fe290097a91"
+									}
+								}
+							],
+							"id": "4377d0e7-488a-4de4-88ee-ca2c986ca391",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": "http://localhost:8000/v1/daraja/test_access_token/"
+							},
+							"response": []
+						},
+						{
+							"name": "RegisterURLs Local",
+							"id": "9950d64d-6fde-4644-a99e-ec219b830da6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": {
+										"password": "SimJTvOlnaaNo4nEiRdFrQLBCBaxjLJjcSGPF2GMQLp5h8At0l3cDbLRHiHH0hGd",
+										"username": "bSGY8NB5s5GqODX6NTDnnYSKSzFT1rMu0iQjrl0rIJgjpHXx",
+										"showPassword": false
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": "http://127.0.0.1:8000/api/daraja/register/"
+							},
+							"response": []
+						},
+						{
+							"name": "ValidateTransaction Local",
+							"id": "d3f7ceea-c1ff-49b2-9d2e-bc7ab890c934",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"TransAmount\": 100.00,\r\n    \"MSISDN\": \"254712345678\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/v1/daraja/c2b_validation/"
+							},
+							"response": []
+						},
+						{
+							"name": "Confirmation-TestTransaction Local",
+							"id": "36bfceed-a866-4df0-a267-f83bdb1fe270",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"TransactionType\": \"PayBill\",\r\n    \"TransID\": \"{{$randomInt}}\",\r\n    \"TransTime\": \"20240722134522\",\r\n    \"TransAmount\": \"30000.00\",\r\n    \"BusinessShortCode\": \"600999\",\r\n    \"BillRefNumber\": \"Wayne Mwandi B8\",\r\n    \"InvoiceNumber\": \"\",\r\n    \"ThirdPartyTransID\": \"\",\r\n    \"MSISDN\": \"0715303037\",\r\n    \"FirstName\": \"Wayne\",\r\n    \"MiddleName\": \"\",\r\n    \"LastName\": \"Mwandi\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/v1/daraja/c2b_confirmation/"
+							},
+							"response": []
+						}
+					],
+					"id": "5573f3d0-cfa5-42d9-ae1e-9daa804a915a"
+				},
+				{
+					"name": "Localhost-Docker",
+					"item": [
+						{
+							"name": "Generate OAuth Access Token Local",
+							"id": "b9cbe9dd-e155-4e0f-bf2b-23531d58e682",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": "http://localhost/v1/daraja/test_access_token/"
+							},
+							"response": []
+						},
+						{
+							"name": "RegisterURLs Local Docker",
+							"id": "da0ce05d-e2d1-41ac-b587-490b9e9babef",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": {
+										"password": "NoAYJw2O6lW1fIpheVzzAmV9Aiiz2Cz2EAG8Zm0etXDHGqBPnATpCNhG2xhG0KwS",
+										"username": "UFQn5Vw98J5MbiwmtX6JmFAAAFZgA3Oe8Ad4VBCYQma17XhS",
+										"showPassword": false
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": "http://localhost/v1/daraja/register/"
+							},
+							"response": []
+						},
+						{
+							"name": "ValidateTransaction Local Docker",
+							"id": "adb595ad-6164-4ad4-a4b3-3f1591ce8ca9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"TransAmount\": 100.00,\r\n    \"MSISDN\": \"254712345678\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost/v1/daraja/c2b_validation/"
+							},
+							"response": []
+						},
+						{
+							"name": "Confirmation-TestTransaction Local Docker",
+							"id": "df52c895-b6b7-4b36-8df8-3579007818bf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"TransactionType\": \"PayBill\",\r\n    \"TransID\": \"SHF12OH29H\",\r\n    \"TransTime\": \"2024-08-04 20:28:24.362478\",\r\n    \"TransAmount\": \"30000.00\",\r\n    \"BusinessShortCode\": \"600999\",\r\n    \"BillRefNumber\": \"Mwandi B8 Feb\",\r\n    \"InvoiceNumber\": \"\",\r\n    \"ThirdPartyTransID\": \"\",\r\n    \"MSISDN\": \"0715303037\",\r\n    \"FirstName\": \"Wayne\",\r\n    \"MiddleName\": \"\",\r\n    \"LastName\": \"Mwandi\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost/v1/daraja/c2b_confirmation/"
+							},
+							"response": []
+						}
+					],
+					"id": "0a1cb6b5-2b30-4d44-9be8-83fa6fe4d060"
+				},
+				{
+					"name": "EC2-Docker",
+					"item": [
+						{
+							"name": "Generate OAuth Access Token EC2",
+							"id": "a6a368f5-61ac-4d9f-8b6b-4f9b84ded389",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": "https://waynemwandi.com/v1/daraja/test_access_token/"
+							},
+							"response": []
+						},
+						{
+							"name": "RegisterURLs-MUSTUSELOCAL",
+							"id": "0d6d615c-d344-4b80-bdc4-f77f0aa6292c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "https://waynemwandi.com/v1/daraja/c2b_confirmation/register/"
+							},
+							"response": []
+						},
+						{
+							"name": "ValidateTransaction",
+							"id": "851d0d59-2f8c-4899-9794-fe6a8ecabdf1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"TransAmount\": 100.00,\r\n    \"MSISDN\": \"254715303037\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://waynemwandi.com/v1/daraja/c2b_validation/"
+							},
+							"response": []
+						},
+						{
+							"name": "Confirmation-TestTransaction",
+							"id": "cf9b64f7-f137-4f35-9159-80a902dfb862",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"TransactionType\": \"PayBill\",\r\n    \"TransID\": \"{{$randomInt}}\",\r\n    \"TransTime\": \"20240722134522\",\r\n    \"TransAmount\": \"30000.00\",\r\n    \"BusinessShortCode\": \"600998\",\r\n    \"BillRefNumber\": \"Wayne Mwandi B8\",\r\n    \"InvoiceNumber\": \"\",\r\n    \"ThirdPartyTransID\": \"\",\r\n    \"MSISDN\": \"254715303037\",\r\n    \"FirstName\": \"Wayne\",\r\n    \"MiddleName\": \"\",\r\n    \"LastName\": \"Mwandi\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://waynemwandi.com/v1/daraja/c2b_confirmation/"
+							},
+							"response": []
+						}
+					],
+					"id": "07bb1af8-9a70-4937-963d-a8673a75be9f"
+				},
+				{
+					"name": "Generate OAuth Access Token SAFARICOM",
+					"id": "6658f647-a51b-4ac8-844b-d32fd3f42e97",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "NoAYJw2O6lW1fIpheVzzAmV9Aiiz2Cz2EAG8Zm0etXDHGqBPnATpCNhG2xhG0KwS",
+								"username": "UFQn5Vw98J5MbiwmtX6JmFAAAFZgA3Oe8Ad4VBCYQma17XhS",
+								"showPassword": false
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials",
+							"protocol": "https",
+							"host": [
+								"sandbox",
+								"safaricom",
+								"co",
+								"ke"
+							],
+							"path": [
+								"oauth",
+								"v1",
+								"generate"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "c1d0033d-cb49-48a2-990b-3d44fdadaa34"
+		},
+		{
+			"name": "GetBuildings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is returned as JSON\", function () {\r",
+							"    pm.expect(pm.response).to.be.json;\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "bfd54bb1-6060-43d8-8834-6674fcc7549c"
+					}
+				}
+			],
+			"id": "a3c6d3b6-f9ff-4992-8524-ec4139888237",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 626ae62930a6017a4290bee8ed32b73188b1772947152d894d44611f1a5a8ce6",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/v1/api/buildings/"
+			},
+			"response": []
+		},
+		{
+			"name": "AddBuilding",
+			"id": "140f93bf-fe07-4daa-a006-1fc4e3a5fe94",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 626ae62930a6017a4290bee8ed32b73188b1772947152d894d44611f1a5a8ce6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"building_name\" : \"postman\",\r\n    \"building_owner_name\" : \"postman\",\r\n    \"building_location\" : \"postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/v1/api/buildings/"
+			},
+			"response": []
+		},
+		{
+			"name": "GetTenants",
+			"id": "45bf35c7-a54d-40f9-b95b-80147ea196ff",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 626ae62930a6017a4290bee8ed32b73188b1772947152d894d44611f1a5a8ce6",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/v1/api/tenants/"
+			},
+			"response": []
+		},
+		{
+			"name": "AddTenant",
+			"id": "30b4ee58-cded-4768-b221-6698a64a94ee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 626ae62930a6017a4290bee8ed32b73188b1772947152d894d44611f1a5a8ce6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\" : \"postman\",\r\n    \"last_name\" : \"postman\",\r\n    \"email\" : \"mwandiwayne2@gmail.com\",\r\n    \"building_id\": \"5\",\r\n    \"national_id\" : \"13414\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/v1/api/tenants/"
+			},
+			"response": []
+		},
+		{
+			"name": "GetPayments",
+			"id": "4402ce71-1710-46ab-9223-722b4a245c9f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 626ae62930a6017a4290bee8ed32b73188b1772947152d894d44611f1a5a8ce6",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:8000/v1/api/buildings/"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is returned as JSON\", function () {\r",
+							"    pm.expect(pm.response).to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test Login\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    \r",
+							"    if (jsonData.token) {\r",
+							"        pm.expect(jsonData.token).to.be.a('string');\r",
+							"        pm.expect(jsonData.user.username).to.equal(pm.collectionVariables.get('username'));\r",
+							"    } else {\r",
+							"        pm.expect.fail(jsonData.non_field_errors);\r",
+							"    }\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "d44618dd-ca95-4bc0-a448-c8e7c5a74965"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Parse the request body to extract the username\r",
+							"const requestBody = JSON.parse(pm.request.body.raw);\r",
+							"\r",
+							"// Set the username as an environment variable\r",
+							"pm.collectionVariables.set('username', requestBody.username);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "58a6a80d-641a-4aa0-bd2a-82c8d8ea3a7c"
+					}
+				}
+			],
+			"id": "0df0fe6f-9b7d-4cca-8633-918593ec86d3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"zWayne\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/v1/api/auth/login"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				],
+				"id": "f579b8c3-5fef-48a4-95c2-ff20f560becf"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				],
+				"id": "0ac5150e-f23f-4a6b-bf19-ff180698d0f7"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": ""
+		}
+	]
+}
